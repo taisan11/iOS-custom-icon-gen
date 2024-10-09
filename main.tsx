@@ -48,9 +48,9 @@ app.post('/IconGen.mobileconfig', async (c) => {
   const icon = await Icon.bytes()
   const IconBase64 = btoa(String.fromCharCode(...new Uint8Array(icon)))
   c.header("Content-Type", "text/xml")
-  return c.body(`<?xml version=”1.0” encoding=”UTF-8”?>
-<!DOCTYPE plist PUBLIC “-//Apple//DTD PLIST 1.0//EN” “http://www.apple.com/DTDs/PropertyList-1.0.dtd”>
-<plist version=”1.0”>
+  return c.body(`<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
 <dict>
     <key>PayloadContent</key>
     <array>
