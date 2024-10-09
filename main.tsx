@@ -55,53 +55,38 @@ app.post('/IconGen.mobileconfig', async (c) => {
     <key>PayloadContent</key>
     <array>
         <dict>
-            <!-- フルスクリーンで表示するかどうか(TF) -->
             <key>FullScreen</key>
             <true/>
-            <!-- アイコンはpngでbase64エンコードしてね!! -->
             <key>Icon</key>
             <data>${IconBase64}</data>
-            <!-- 別サイトに行くときもフルスクリーンにするかどうか(TF) -->
             <key>IgnoreManifestScope</key>
             <false/>
-            <!-- 削除可能にする。(TF) -->
             <key>IsRemovable</key>
             <true/>
-            <!-- 名前(全角6,7文字を目安) -->
             <key>Label</key>
             <string>${Label}</string>
-            <!-- trueにすると光沢がつかなくなるが、効果不明 -->
             <key>Precomposed</key>
             <false/>
-            <!-- 開くやつ(URLスキームでも行けるはず) -->
             <key>URL</key>
             <string>${URL}</string>
-            <!-- ペイロードの名前(かぶったらダメかな?) -->
             <key>PayloadIdentifier</key>
             <string>dev.deno.iOS-custom-icon-gen.${Label}.${Math.floor(Math.random()*1000)}</string>
-            <!-- 変えるな -->
             <key>PayloadType</key>
             <string>com.apple.webClip.managed</string>
-            <!-- 動的に変えてね -->
             <key>PayloadUUID</key>
             <string>${crypto.randomUUID()}</string>
             <key>PayloadVersion</key>
             <integer>1</integer>
         </dict>
     </array>
-    <!-- mobileconfigのなまえ -->
     <key>PayloadDisplayName</key>
     <string>Web Clip</string>
-    <!-- ペイロードの名前 -->
     <key>PayloadIdentifier</key>
-    <string>com.example.myprofile</string>
-    <!-- 変えるな -->
+    <string>dev.deno.iOS-custom-icon-gen.${Label}.${Math.floor(Math.random()*1000)}</string>
     <key>PayloadType</key>
     <string>Configuration</string>
-    <!-- 動的に変更 -->
     <key>PayloadUUID</key>
     <string>${crypto.randomUUID()}</string>
-    <!-- 変えるな -->
     <key>PayloadVersion</key>
     <integer>1</integer>
 </dict>
